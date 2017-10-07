@@ -5,7 +5,7 @@ from watson_developer_cloud import ToneAnalyzerV3
 from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = 'images'
-ALLOWED_EXTENSIONS = [".jpg",".jpeg",".png"]
+ALLOWED_EXTENSIONS = ["jpg","jpeg","png"]
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -14,11 +14,6 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route('/', methods=["GET"])
 def home():
 	return "this is the homepage, im gonna prettify it -celine"
-
-@app.route('/upload', methods=["POST"]) #user uploads image
-def post_image():
-	return render_template("uploadimage.html")
-
 
 # /visualrec -> "visual recommendations"
 @app.route('/visualrec', methods=["GET"]) #receives image upload and produces map from foursquare api
@@ -59,18 +54,18 @@ def upload_file():
 
         #check that it is a file
         if not file:
-                flash("Not A File")
+                print("Not A File")
                 return redirect(url_for('upload')) # Refinement Suggestion: Send JSON to Client instead
         
         #check that the file has a name 
         if file.filename == '':
-                flash("No Selectec File")
+                print("No Selectec File")
                 return redirect(url_for('upload')) # Refinement Suggestion: Send JSON to Client instead
         
         
         #check that file is allowed
         if not allowed_file( file.filename ) :
-                flash("File Extension not Allowed")
+                print("File Extension not Allowed")
                 return redirect(url_for('upload')) # Refinement Suggestion: Send JSON to Client instead
 
         #Upload File and Store it
