@@ -1,0 +1,10 @@
+# Potentially useful enpoints of Foursquare API
+
+* get-details: Get Details of a Venue
+* get-search: Search for Venues
+* get-photos: Get a Venue’s Photos
+* get-hours: Get a Venue’s Hours
+* get-menu: Get a Venue’s Menu (if applicable)
+* get-links: Get a Venue’s Links
+* ? get-categories: Get Venue Categories
+* get-details: Get Details of a Photo
