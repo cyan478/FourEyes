@@ -7,4 +7,4 @@ applications:
   instances: 1
   memory: 256M
   buildpack: https://github.com/cloudfoundry/buildpack-python.git#v1.5.18
-  command: python main.py
+  command: python app.py
