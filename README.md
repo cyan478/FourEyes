@@ -7,3 +7,4 @@ hackathon huskies @ masschallenge 2017
 * Relevant locations displayed on map
 * Search criteria: Proximity, Reviews
 * Use get-photos endpoint to display only images of location that are relevant to submitted image
+* Prioritize locations that are currently open
