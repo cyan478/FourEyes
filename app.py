@@ -13,18 +13,16 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/', methods=["GET"])
 def home():
-	return "<b> hello world </b>"
+	return "this is the homepage, im gonna prettify it -celine"
 
-@app.route('/example', methods=["GET"])
-def version():
-	return sys.version
+@app.route('/upload', methods=["POST"]) #user uploads image
+def post_image():
+	return render_template("uploadimage.html")
 
-@app.route('/tone', methods=["GET"])
-def get_tone():
-	return render_template("tone.html")
 
-@app.route('/visualrec', methods=["POST"]) #POST of tone
-def post_tone():
+# /visualrec -> "visual recommendations"
+@app.route('/visualrec', methods=["GET"]) #receives image upload and produces map from foursquare api
+def render_results():
 	u = "d6094380-8c1e-4522-9f9d-97aeadb47356"
 	p = "vSAcDfdNZr1r"
 	v = "2016-05-19"
@@ -34,7 +32,6 @@ def post_tone():
 	
 	from IPython import embed; embed() #COOL DEBUGGING TECHNIQUE
 	return render_template("tone.html")
-
 
 
 # File Upload Stuff
