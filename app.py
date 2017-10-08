@@ -32,8 +32,8 @@ def render_results():
 	obj = request.args['objectName']
 	
 	# Uses Object's Name to Retrieve Foursquare Data
-	# ----- TBD ------ #
-	m = folium.Map(location=[45.5236, -122.6750])
+	m = map_creator.generateMap(obj)
+	#m = folium.Map(location=[45.5236, -122.6750])
 
 	# Temporarily Save the Map
 	mapPath = os.path.join( app.config['UPLOAD_FOLDER'], "map.html") 

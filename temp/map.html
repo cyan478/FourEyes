@@ -15,7 +15,7 @@
     <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
     <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
     
-            <style> #map_6e76710edf0249df9c3baf6afb16c1af {
+            <style> #map_391d9d02098644188f59712d584cdd2d {
                 position : relative;
                 width : 100.0%;
                 height: 100.0%;
@@ -27,7 +27,7 @@
 </head>
 <body>    
     
-            <div class="folium-map" id="map_6e76710edf0249df9c3baf6afb16c1af" ></div>
+            <div class="folium-map" id="map_391d9d02098644188f59712d584cdd2d" ></div>
         
 </body>
 <script>    
@@ -37,10 +37,10 @@
                 var bounds = null;
             
 
-            var map_6e76710edf0249df9c3baf6afb16c1af = L.map(
-                                  'map_6e76710edf0249df9c3baf6afb16c1af',
-                                  {center: [45.5236,-122.675],
-                                  zoom: 10,
+            var map_391d9d02098644188f59712d584cdd2d = L.map(
+                                  'map_391d9d02098644188f59712d584cdd2d',
+                                  {center: [42.3442399,-71.0310313],
+                                  zoom: 13,
                                   maxBounds: bounds,
                                   layers: [],
                                   worldCopyJump: false,
@@ -49,7 +49,7 @@
             
         
     
-            var tile_layer_540b5782b34e4a45ab54b255850ff066 = L.tileLayer(
+            var tile_layer_3b63a8ab47fa43ab96adb24855bea587 = L.tileLayer(
                 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                 {
   "attribution": null, 
@@ -59,6 +59,100 @@
   "noWrap": false, 
   "subdomains": "abc"
 }
-                ).addTo(map_6e76710edf0249df9c3baf6afb16c1af);
+                ).addTo(map_391d9d02098644188f59712d584cdd2d);
+        
+    
+            var feature_group_34ffb72620e046a38dc9709947c6bdc7 = L.featureGroup(
+                ).addTo(map_391d9d02098644188f59712d584cdd2d);
+        
+    
+            var circle_marker_c70d9babec1e4f4b968c7692a96ea16e = L.circleMarker(
+                [42.3442399,-71.0310313],
+                {
+  "bubblingMouseEvents": true, 
+  "color": "red", 
+  "dashArray": null, 
+  "dashOffset": null, 
+  "fill": false, 
+  "fillColor": "red", 
+  "fillOpacity": 0.6, 
+  "fillRule": "evenodd", 
+  "lineCap": "round", 
+  "lineJoin": "round", 
+  "opacity": 1.0, 
+  "radius": 10, 
+  "stroke": true, 
+  "weight": 3
+}
+                ).addTo(feature_group_34ffb72620e046a38dc9709947c6bdc7);
+            
+    
+            var feature_group_0bdf7e3440e04eed9e078fd16acaf7cb = L.featureGroup(
+                ).addTo(map_391d9d02098644188f59712d584cdd2d);
+        
+    
+            var circle_marker_5fbc48e5d6824c3a844dd3abf6726b27 = L.circleMarker(
+                [42.3526294423,-71.0610461157],
+                {
+  "bubblingMouseEvents": true, 
+  "color": "blue", 
+  "dashArray": null, 
+  "dashOffset": null, 
+  "fill": false, 
+  "fillColor": "blue", 
+  "fillOpacity": 0.6, 
+  "fillRule": "evenodd", 
+  "lineCap": "round", 
+  "lineJoin": "round", 
+  "opacity": 1.0, 
+  "radius": 5, 
+  "stroke": true, 
+  "weight": 3
+}
+                ).addTo(feature_group_0bdf7e3440e04eed9e078fd16acaf7cb);
+            
+    
+
+            var marker_e157d053842b483e87bc5fc17dc364b7 = L.marker(
+                [42.3526294423,-71.0610461157],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_391d9d02098644188f59712d584cdd2d);
+            
+    
+            var popup_c0fa03dc3cf24f5fb4c700e1a5dbee35 = L.popup({maxWidth: '300'});
+
+            
+                var html_dba738c0fb1842f5918666b8250b66be = $('<div id="html_dba738c0fb1842f5918666b8250b66be" style="width: 100.0%; height: 100.0%;">Winmill Fabrics</div>')[0];
+                popup_c0fa03dc3cf24f5fb4c700e1a5dbee35.setContent(html_dba738c0fb1842f5918666b8250b66be);
+            
+
+            marker_e157d053842b483e87bc5fc17dc364b7.bindPopup(popup_c0fa03dc3cf24f5fb4c700e1a5dbee35);
+
+            
+        
+    
+
+            var marker_a715283852ad490faa31e7da9bc384cb = L.marker(
+                [42.3442399,-71.0310313],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_391d9d02098644188f59712d584cdd2d);
+            
+    
+            var popup_13dc0e4dced84631ad6af48e6367019d = L.popup({maxWidth: '300'});
+
+            
+                var html_e7d9b0696cba46cc926fbcfd7fd73fa2 = $('<div id="html_e7d9b0696cba46cc926fbcfd7fd73fa2" style="width: 100.0%; height: 100.0%;">MassChallenge</div>')[0];
+                popup_13dc0e4dced84631ad6af48e6367019d.setContent(html_e7d9b0696cba46cc926fbcfd7fd73fa2);
+            
+
+            marker_a715283852ad490faa31e7da9bc384cb.bindPopup(popup_13dc0e4dced84631ad6af48e6367019d);
+
+            
         
 </script>
