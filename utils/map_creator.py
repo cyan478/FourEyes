@@ -116,6 +116,7 @@ def generateMap(imgObj):
         folium.Marker([lat, lng], popup=label).add_to(venues_map)
 
     # display map
+    #venues_map.save("new.html") 
     return venues_map
 
 

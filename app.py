@@ -35,8 +35,9 @@ def render_results():
 	m = map_creator.generateMap(obj)
 	#m = folium.Map(location=[45.5236, -122.6750])
 
-	# Temporarily Save the Map
+	# Remove the previous map and save the new one
 	mapPath = os.path.join( app.config['UPLOAD_FOLDER'], "map.html") 
+	os.remove( mapPath )
 	m.save( mapPath )
 
 	# Render the map
