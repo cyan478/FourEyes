@@ -69,10 +69,11 @@ def upload_file():
 	
 	#save the file
 	filename = secure_filename(file.filename)
-	file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+	filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+	file.save(filepath)
 
 	#Send file to Image Recog for identification
-	objectName = image_recog(filename)
+	objectName = image_recog(filepath)
 	
 
 	# Reroute the User to the results page
@@ -82,11 +83,21 @@ def upload_file():
 # Identifies the primary object in the Image
 # Returns the name of the object
 def image_recog(imagefile):
+
+	# Get the Visual Recognition Classifier from Watson
 	visual_recognition = VisualRecognitionV3('2016-05-20', api_key='c5666e0f4f55241567cee1f69c0652e7e86d8ffe')
-	image = open( os.path.join(app.config['UPLOAD_FOLDER'], imagefile), "rb")
+	
+	# Retrieve the data 
+	image = open( imagefile, "rb")
 	imgObject = visual_recognition.classify(images_file=image) #take in image file
-	print json.dumps(imgObject) 
+	#print json.dumps(imgObject) 
 	objectName = imgObject['images'][0]['classifiers'][0]['classes'][0]['class'] #image's class / name
+	
+
+	# Remove the file (not needed anymore)
+	os.remove( imagefile )
+
+	# Return the Object's name
 	return objectName
 
 
