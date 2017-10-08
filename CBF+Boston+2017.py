@@ -586,7 +586,7 @@ else:
 # In[ ]:
 
 # display map
-venues_map
+venues_map.save("map.jpg")
 
 
 # <a id="item6"></a>
