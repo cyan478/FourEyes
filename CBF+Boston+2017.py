@@ -200,7 +200,7 @@ for lat, lng, label in zip(latitudes_list, longitudes_list, labels):
     folium.Marker([lat, lng], popup=label).add_to(venues_map)
 
 # display map
-venues_map
+print venues_map
 
 
 #    
