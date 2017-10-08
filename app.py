@@ -3,9 +3,13 @@ import json
 from flask import Flask, render_template, request, url_for, redirect
 from watson_developer_cloud import VisualRecognitionV3
 from werkzeug.utils import secure_filename
+import folium
 
-UPLOAD_FOLDER = "images"
+UPLOAD_FOLDER = "temp"
 ALLOWED_EXTENSIONS = ["jpg","jpeg","png"]
+
+HOSTNAME = "0.0.0.0"
+PORT = 3333
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -22,10 +26,26 @@ def render_results():
 	if 'objectName' not in request.args:
 		return redirect(url_for('upload'))
 		
-	# Retrieves the object
+	# Retrieves the object's name
 	obj = request.args['objectName']
-	return obj 
+	
+	# Uses Object's Name to Retrieve Foursquare Data
+	# ----- TBD ------ #
+	m = folium.Map(location=[45.5236, -122.6750])
 
+	# Temporarily Save the Map
+	mapPath = os.path.join( app.config['UPLOAD_FOLDER'], "map.html") 
+	m.save( mapPath )
+
+	# Generate the MapFile Location
+	mapLoc = url_for(map_image)
+
+	return render_template("success.html", mapFile=mapLoc)
+
+
+@app.route("/mapserve", methods=["GET"])
+def map_image( mapPath )
+	return render_template(mapPath)
 
 # File Upload Stuff
 
@@ -102,7 +122,7 @@ def image_recog(imagefile):
 
 
 
-app.run(host="0.0.0.0", port=3333, debug=True)
+app.run(host=HOSTNAME, port=PORT, debug=True)
 
 '''
 
