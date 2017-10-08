@@ -1,6 +1,6 @@
 import sys, os
 import json
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, send_from_directory
 from watson_developer_cloud import VisualRecognitionV3
 from werkzeug.utils import secure_filename
 import folium
@@ -8,7 +8,7 @@ import folium
 UPLOAD_FOLDER = "temp"
 ALLOWED_EXTENSIONS = ["jpg","jpeg","png"]
 
-HOSTNAME = "0.0.0.0"
+HOSTNAME = "127.0.0.1"
 PORT = 3333
 
 app = Flask(__name__)
@@ -37,15 +37,13 @@ def render_results():
 	mapPath = os.path.join( app.config['UPLOAD_FOLDER'], "map.html") 
 	m.save( mapPath )
 
-	# Generate the MapFile Location
-	mapLoc = url_for(map_image)
+	# Render the map
+	return render_template("success.html")
 
-	return render_template("success.html", mapFile=mapLoc)
-
-
-@app.route("/mapserve", methods=["GET"])
-def map_image( mapPath )
-	return render_template(mapPath)
+# Returns the map file
+@app.route("/temp/map.html")
+def show_map():
+	return send_from_directory(app.config['UPLOAD_FOLDER'], 'map.html')
 
 # File Upload Stuff
 
