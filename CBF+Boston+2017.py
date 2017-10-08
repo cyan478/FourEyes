@@ -553,6 +553,6 @@ def generateMap(imgObj):
     # In[ ]:
 
     # display map
-    return venues_map.save("map.html")
+    return venues_map
 
 generateMap("Coffee Shops")
