@@ -4,6 +4,8 @@ from flask import Flask, render_template, request, url_for, redirect, send_from_
 from watson_developer_cloud import VisualRecognitionV3
 from werkzeug.utils import secure_filename
 import folium
+from utils import map_creator
+
 
 UPLOAD_FOLDER = "temp"
 ALLOWED_EXTENSIONS = ["jpg","jpeg","png"]
